@@ -26,3 +26,19 @@ console.log(games.length)
 //insert a element at very begining of the array
 games.unshift('warzone')
 console.log(games)
+
+//delete the latest item in the array
+
+games.pop()
+console.log(games)
+
+//delete an element on an specific position
+let position = 1; //this will be delated from the index
+games.splice(position, 1) //we pass the variable and how many elements we want to delete after that position index
+console.log({position, games})
+
+//how to know the index position from an element
+// when using indexof it returns -1 means that the element was not found 
+let search = games.indexOf('dash')
+console.log(search)
+console.log(games)
