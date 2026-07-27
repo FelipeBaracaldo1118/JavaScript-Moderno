@@ -23,3 +23,9 @@ function creandoarguemntos(){
 }
 
 creandoarguemntos(1, 'felipe', 'hablando')
+
+//Arrow Functions -> Lambda functions 
+
+let arrow = () => {
+    
+}
