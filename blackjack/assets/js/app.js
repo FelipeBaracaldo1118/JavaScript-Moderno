@@ -38,5 +38,19 @@ const pedirCarta = () => {
     return carta;
 }
 
-pedirCarta();
 
+//look for the card value
+const valorCarta = (carta) =>{
+    //how to extact the first letter/value 
+    //the string can be worked as an array
+    //this substring return a new string cutted on base of the intial potition
+    const valor = carta.substring(0, carta.length-1);
+    return (isNaN(valor)) ? 
+            (valor === 'A') ? 11 : 10
+            : valor * 1; 
+    //isNaN looks. if that is not a number
+    
+    
+}
+const valor = valorCarta( pedirCarta() );
+console.log({valor})
