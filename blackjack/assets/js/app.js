@@ -3,6 +3,7 @@ let deck =[];
 const tipos = ['C', 'D','H','S']
 const especiales = ['J', 'Q', 'K', 'A']
 
+//this function creates a new deck
 const createDeck = () =>{
     //loop for taking each card form 2 until 10 on each letter
     for (i = 2; i<=10 ; i++){
@@ -18,9 +19,24 @@ const createDeck = () =>{
             deck.push(especial + tipo)
         }
     }
+        //install underscore is a JS library with a lot of functions that javascript doesn't have right now
+        deck = _.shuffle(deck)
     console.log(deck)
+    return deck;
 }
 
-//install underscore is a JS library with a lot of functions that javascript doesn't have right now
-
 createDeck()
+
+//this function allows me to pick a card
+const pedirCarta = () => {
+    const carta = deck.pop();
+    if(deck.length === 0 ){
+        throw 'No hay cartas disponibles'
+    }
+    console.log(deck)
+    console.log(carta)
+    return carta;
+}
+
+pedirCarta();
+
