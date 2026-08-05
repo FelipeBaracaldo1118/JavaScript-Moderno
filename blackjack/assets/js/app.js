@@ -10,6 +10,7 @@ const btnPedir = document.querySelector('#Pedir')
 const divCartas_jugador = document.querySelector('#jugador-cartas')
 const divCartasComputadora = document.querySelector('#computadora-cartas')
 const btnDetener = document.querySelector('#Detener')
+const btnNewGame = document.querySelector('#Nuevo')
 //this function creates a new deck
 const createDeck = () =>{
     //loop for taking each card form 2 until 10 on each letter
@@ -75,7 +76,19 @@ const turnoComputadora = (puntosMinimos) => {
     }
    } while( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21));
 
-
+   //set time out runs the code after a time set up 
+   //this will make that this part of the code runs after all the previous steps are done
+   setTimeout(() => {
+     if(puntosComputadora === puntosMinimos){
+        alert('No body wins')
+   }else if (puntosMinimos > 21){
+    alert('Computer Wins')
+   }else if(puntosComputadora > 21){
+    alert('Player Wins')
+   }else{
+    alert('Computer Wins')
+   }
+   }, 30)
 }
 
 //when using the DOM. we can edit the whole structure and info inside any website using JS
@@ -148,5 +161,17 @@ btnDetener.addEventListener('click', () => {
 
 })
 
+btnNewGame.addEventListener('click',() => {
+    puntosJugador = 0;
+    puntosComputadora = 0;
+    small[0]= 0;
+    small[1]= 0;
 
+    divCartasComputadora.innerText=''
+    divCartas_jugador.innerText=''
 
+    btnPedir.disabled= false;
+    btnDetener.disabled = false;
+
+    deck = createDeck();
+})
