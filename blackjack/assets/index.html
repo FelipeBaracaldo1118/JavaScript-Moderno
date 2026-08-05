@@ -13,10 +13,12 @@
     </header>
 
     <nav class="row mt-2">
-        <div class="col text-center">
-            <button class="btn btn-danger">Nuevo Juego</button>
-            <button class="btn btn-primary">Pedir Carta</button>
-            <button class="btn btn-primary">Detener</button>
+        <div id= "divBtn"class="col text-center">
+            <button  id="Nuevo" class="btn btn-danger">Nuevo Juego</button>
+            <button  id="Pedir" class="btn btn-primary">Pedir Carta</button>
+            <button  id="Detener" class="btn btn-primary">Detener</button>
+            <!-- creating a button that sometimes could appear-->
+
         </div>
     </nav>
 
@@ -24,9 +26,7 @@
             <div class="col">
                 <h1>Jugador 1 - <small>0</small></h1>
                 <div id="jugador-cartas">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
+                  
                 </div>
             </div>
     </div>
@@ -34,11 +34,12 @@
             <div class="col">
                 <h1>Computadora - <small>0</small></h1>
                 <div id="computadora-cartas">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
-                    <img class="carta" src="/blackjack/assets/cartas/10C.png">
+                    
                 </div>
             </div>
+    </div>
+    <div id="body">
+
     </div>
     <script src="/blackjack/assets/js/underscore.js"></script>
     <script src="/blackjack/assets/js/app.js"></script>
