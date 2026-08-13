@@ -174,4 +174,5 @@ btnNewGame.addEventListener('click',() => {
     btnDetener.disabled = false;
 
     deck = createDeck();
+    alert('Game Reset')
 })
