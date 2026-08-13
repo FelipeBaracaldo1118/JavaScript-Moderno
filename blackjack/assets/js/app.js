@@ -1,4 +1,13 @@
 //create the deck  using a function
+
+//Module patern 
+//autoname function, crates a new scope inside of it. 
+//this will protect the code from other trying to access 
+
+// (() => { })()
+//
+(()=>{
+ 'use strict'
 let deck =[];
 const tipos = ['C', 'D','H','S']
 const especiales = ['J', 'Q', 'K', 'A']
@@ -176,3 +185,5 @@ btnNewGame.addEventListener('click',() => {
     deck = createDeck();
     alert('Game Reset')
 })
+    
+})();
