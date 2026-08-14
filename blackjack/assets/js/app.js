@@ -8,20 +8,26 @@
 //
 (()=>{
  'use strict'
-let deck =[];
-const tipos = ['C', 'D','H','S']
-const especiales = ['J', 'Q', 'K', 'A']
 
-let puntosJugador = 0;
-let puntosComputadora = 0;
+
+let deck =[];
+const tipos = ['C', 'D','H','S'], especiales = ['J', 'Q', 'K', 'A'];
+
+let puntosJugador = 0,
+     puntosComputadora = 0;
+
 //HTML references
-const btnPedir = document.querySelector('#Pedir')
-const divCartas_jugador = document.querySelector('#jugador-cartas')
-const divCartasComputadora = document.querySelector('#computadora-cartas')
-const btnDetener = document.querySelector('#Detener')
-const btnNewGame = document.querySelector('#Nuevo')
+const btnPedir = document.querySelector('#Pedir'), divCartas_jugador = document.querySelector('#jugador-cartas')
+const divCartasComputadora = document.querySelector('#computadora-cartas'), btnDetener = document.querySelector('#Detener'), btnNewGame = document.querySelector('#Nuevo')
+
+
+const initializeGame = () => {
+    createDeck()
+}
 //this function creates a new deck
 const createDeck = () =>{
+    //re-intialize the deck
+    deck = [];
     //loop for taking each card form 2 until 10 on each letter
     for (i = 2; i<=10 ; i++){
         for (let tipo of tipos){
@@ -37,16 +43,14 @@ const createDeck = () =>{
         }
     }
         //install underscore is a JS library with a lot of functions that javascript doesn't have right now
-        deck = _.shuffle(deck)
+        return _.shuffle(deck)
     
-    return deck;
 }
 
-createDeck()
 
 //this function allows me to pick a card
 const pedirCarta = () => {
-    const carta = deck.pop();
+    deck.pop();
     if(deck.length === 0 ){
         throw 'No hay cartas disponibles'
     }
@@ -171,6 +175,8 @@ btnDetener.addEventListener('click', () => {
 })
 
 btnNewGame.addEventListener('click',() => {
+
+    initializeGame();
     puntosJugador = 0;
     puntosComputadora = 0;
     small[0]= 0;
@@ -182,7 +188,7 @@ btnNewGame.addEventListener('click',() => {
     btnPedir.disabled= false;
     btnDetener.disabled = false;
 
-    deck = createDeck();
+    //deck = createDeck();
     alert('Game Reset')
 })
     
