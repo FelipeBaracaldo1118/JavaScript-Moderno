@@ -13,16 +13,18 @@
 let deck =[];
 const tipos = ['C', 'D','H','S'], especiales = ['J', 'Q', 'K', 'A'];
 
-let puntosJugador = 0,
-     puntosComputadora = 0;
+
 
 //HTML references
 const btnPedir = document.querySelector('#Pedir'), divCartas_jugador = document.querySelector('#jugador-cartas')
 const divCartasComputadora = document.querySelector('#computadora-cartas'), btnDetener = document.querySelector('#Detener'), btnNewGame = document.querySelector('#Nuevo')
 
 
-const initializeGame = () => {
+const initializeGame = (numJugadores = 2) => {
     createDeck()
+    for(let i =0 ; i< numJugadores;  i++){
+        puntosJugadores.push(0)
+    }
 }
 //this function creates a new deck
 const createDeck = () =>{
@@ -60,6 +62,7 @@ const pedirCarta = () => {
 
 
 //look for the card value
+//this functions allows to have the card value
 const valorCarta = (carta) => {
     //how to extact the first letter/value 
     //the string can be worked as an array
@@ -74,11 +77,16 @@ const valorCarta = (carta) => {
 }
 const valor = valorCarta( pedirCarta() );
 
+let puntosJugadores = []
+let acumularPuntos = (carta, turno) => {
+    puntosJugadores[turno] = puntosComputadora[turno] + valorCarta( carta );
+    puntosHTML[turno].innerText = puntosComputadora[turno]   
+}
+
 const turnoComputadora = (puntosMinimos) => {
 
    do{ const carta = pedirCarta();
-    puntosComputadora = puntosComputadora + valorCarta(carta);
-    small[1].innerText = puntosComputadora;
+    acumularPuntos(carta, puntosJugadores.lenght - 1)
 
     const imgCarta = document.createElement('img');
     imgCarta.src= `/blackjack/assets/cartas/${carta}.png`
@@ -135,6 +143,7 @@ bodyInput.placeholder = "Hola mundo"
 */
 //FIXME: the function passed as argument from another function is called callback
 //This makes the button make any specific action we are looking for
+
 btnPedir.addEventListener('click', () => {
 
     const carta = pedirCarta();
